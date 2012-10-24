@@ -111,13 +111,13 @@ COMMONFLAGS +=                             \
 CFLAGS =          \
 	$(COMMONFLAGS)  \
 	-fdata-sections \
-	-fno-exceptions \
 	-std=c99        \
 
-CXXFLAGS +=      \
-	$(COMMONFLAGS) \
-$(USERCFLAGS)    \
-	-std=c++98     \
+CXXFLAGS +=       \
+	$(COMMONFLAGS)  \
+$(USERCFLAGS)     \
+	-fno-exceptions \
+	-std=c++98      \
 
 ASFLAGS  += -Ttext 0x0
 
