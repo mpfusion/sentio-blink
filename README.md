@@ -12,7 +12,7 @@ Install
 Clone the project
 -----------------
 
-    git clone --recursive git@github.com:marco-0815/sentio-blink.git
+    git clone --recursive git@github.com:mpfusion/sentio-blink.git
 
 Since the project contains the system kernel and drivers as a submodule, the
 parameter `--recursive` is necessary.
@@ -22,7 +22,7 @@ Install the tools
 -----------------
 
 For further installation instructions see the [README file of the Sentio
-Framework](https://github.com/marco-0815/sentio-framework/blob/master/README.md).
+Framework](https://github.com/mpfusion/sentio-framework/blob/master/README.md).
 
 
 Run the code
