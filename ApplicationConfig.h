@@ -15,7 +15,6 @@
 #define _guardTime             2
 #define _minimalOnTime         60
 #define _sleepPeriod           300
-#define _communicationPeriod   23          //dBTimeout+XX
-
+#define _communicationPeriod   23
 
 #endif /* APPLICATIONCONFIG_H_ */

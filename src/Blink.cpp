@@ -10,8 +10,8 @@
 STATUS_BLOCK     Blink::myStatusBlock;
 INTERRUPT_CONFIG Blink::rtcInterruptConfig;
 
-const time Blink::baseTime(0);
-const time Blink::delayTime(1);
+const time Blink::baseTime( 0 );
+const time Blink::delayTime( 1 );
 
 
 Blink::Blink()
@@ -57,7 +57,7 @@ bool Blink::_initialState()
 	timer.setLowPowerMode();
 
 	sentio.LED_SetOrange();
-	debug.printLine("Blink program start", true);
+	debug.printLine( "Blink program start", true );
 
 	myStatusBlock.nextState = ledOnState;
 
@@ -74,16 +74,16 @@ bool Blink::_ledOnState()
 
 	timer.setAlarmPeriod( delayTime, alarm1, alarmMatchSeconds );
 	timer.resetInterrupts();
-	timer.getBaseTime(current);
-	timer.getAlarmTime(alarm, alarm1, aux);
+	timer.getBaseTime( current );
+	timer.getAlarmTime( alarm, alarm1, aux );
 	timer.setLowPowerMode();
 
 	sentio.LED_SetRed();
 
-	debug.printLine("LED on", false);
-	debug.printTimeDet(current);
-	debug.printTimeDet(alarm);
-	debug.printLine("\n",true);
+	debug.printLine( "LED on", false );
+	debug.printTimeDet( current );
+	debug.printTimeDet( alarm );
+	debug.printLine( "\n", true );
 
 	myStatusBlock.sleepMode   = 3;
 	myStatusBlock.wantToSleep = true;
@@ -101,16 +101,16 @@ bool Blink::_ledOffState()
 
 	timer.setAlarmPeriod( delayTime, alarm1, alarmMatchSeconds );
 	timer.resetInterrupts();
-	timer.getBaseTime(current);
-	timer.getAlarmTime(alarm, alarm1, aux);
+	timer.getBaseTime( current );
+	timer.getAlarmTime( alarm, alarm1, aux );
 	timer.setLowPowerMode();
 
 	sentio.LED_ClearRed();
 
-	debug.printLine("LED off", false);
-	debug.printTimeDet(current);
-	debug.printTimeDet(alarm);
-	debug.printLine("\n",true);
+	debug.printLine( "LED off", false );
+	debug.printTimeDet( current );
+	debug.printTimeDet( alarm );
+	debug.printLine( "\n", true );
 
 	myStatusBlock.sleepMode   = 3;
 	myStatusBlock.wantToSleep = true;
@@ -121,9 +121,9 @@ bool Blink::_ledOffState()
 
 void Blink::_ODD_GPIO_InterruptHandler( uint32_t temp )
 {
-	if( temp & maskInterruptRTC_wakeup )
+	if ( temp & maskInterruptRTC_wakeup )
 	{
-		switch( myStatusBlock.nextState )
+		switch ( myStatusBlock.nextState )
 		{
 		case initialState:
 			myStatusBlock.nextState = ledOnState;
@@ -142,5 +142,5 @@ void Blink::_ODD_GPIO_InterruptHandler( uint32_t temp )
 		}
 	}
 
-	GPIO_IntClear(~0);
+	GPIO_IntClear( ~0 );
 }
