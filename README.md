@@ -25,9 +25,6 @@ Framework](https://github.com/mpfusion/sentio-framework/blob/master/README.md).
 
 ### Run the code
 
-The provided `Makefile` was only tested on a Linux system. For other platforms
-the paths of the programs probably need to be adjusted.
-
 A simple `make` will compile all necessary code. A `make flash` will launch
 the flash loader (which might need root access, depending on the
 configuration) and write the blob to the platform.
