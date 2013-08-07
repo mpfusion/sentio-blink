@@ -2,9 +2,8 @@
 # Directories to be included                                       #
 ####################################################################
 
-PROJECTNAME      = Blink
 USERINCLUDEPATHS = src
-SYSTEMDIR        = system
+SYSTEMDIR        = sys
 
 
 ####################################################################
@@ -12,7 +11,7 @@ SYSTEMDIR        = system
 ####################################################################
 
 USER_C_SRC   =
-USER_CXX_SRC = $(USERINCLUDEPATHS)/Blink.cpp
+USER_CXX_SRC = $(USERINCLUDEPATHS)/application.cpp
 USER_ASM_SRC =
 
 
@@ -26,6 +25,7 @@ CPPFLAGS += \
 CXXFLAGS += \
 	-std=c++98         \
 	-fno-exceptions    \
+	-fno-rtti          \
 	-ftrapv            \
 	-Wall              \
 	-Wextra            \

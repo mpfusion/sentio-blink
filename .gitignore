@@ -17,9 +17,8 @@
 *.a
 
 # Directories created during compilation
-/build
 /bin
-/lst
+/tmp
 
 # Editor leftovers
 .*.swp

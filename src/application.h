@@ -1,21 +1,20 @@
 /*
- * Blink.h
+ * application.h
  *
  *  Created on: May 01, 2012
  *      Author: Sebastian
  */
 
-#ifndef BLINK_H_
-#define BLINK_H_
+#ifndef Application_H_
+#define Application_H_
 
-#include "Statemachine.h"
-#include "DriverInterface.h"
-
+#include "fsm.h"
 #include "time.h"
-#include "ApplicationConfig.h"
+#include "DriverInterface.h"
+#include "application_config.h"
 
 
-enum BLINK
+enum STATES
 {
 	initialState,
 	ledOnState,
@@ -29,7 +28,7 @@ enum BLINK
  * This is the main class of the application. It implements all
  * necessary functionality and the states.
  */
-class Blink : public Statemachine, public DriverInterface
+class APPLICATION : public FSM, public DriverInterface
 {
 private:
 	static STATUS_BLOCK myStatusBlock; ///< responsible for the state information
@@ -73,14 +72,14 @@ private:
 	static const time baseTime;  ///< controls the starting value of the timer
 	static const time delayTime; ///< controls the sleep duration
 
+	
 	static INTERRUPT_CONFIG rtcInterruptConfig;
 
 public:
-	Blink();
-	~Blink() {}
-
-	ERROR_CODE executeApplication();
-	uint8_t    setupApplication();
+	APPLICATION();
+	~APPLICATION() {}
+	void run();
+	void init();
 };
 
-#endif /* BLINK_H_ */
+#endif /* APPLICATION_H_ */
